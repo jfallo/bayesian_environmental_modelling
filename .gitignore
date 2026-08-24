@@ -1,0 +1,20 @@
+# Python
+*__pycache__/
+*.pyc
+*.pyo
+
+# data and outputs
+*.DS_Store
+*.pt
+*.pth
+*.npy
+
+# editor
+.vscode/
+.idea/
+
+# venv
+venv/
+
+# scratch files
+scratch/
