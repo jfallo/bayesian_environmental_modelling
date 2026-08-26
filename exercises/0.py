@@ -22,19 +22,19 @@ plt.figure(figsize= (14,6))
 X = uniform.rvs(size= 1000)
 plt.subplot(1,2,1)
 sns.histplot(X, kde= False, bins= 30, color= 'blue', alpha= 0.6)
-plt.title("Histogram of X samples")
+plt.title("Histogram of X Samples")
 plt.xlabel("x")
 plt.ylabel("frequency")
 
 Y = norm.rvs(loc= 2, scale= 10, size= 1000)
 plt.subplot(1,2,2)
 sns.histplot(Y, kde= False, bins= 30, color= 'red', alpha= 0.6)
-plt.title("Histogram of Y samples")
+plt.title("Histogram of Y Samples")
 plt.xlabel("y")
 plt.ylabel("frequency")
 
 plt.tight_layout()
-plt.close()
+plt.show()
 
 
 # Q3
@@ -44,11 +44,11 @@ def transform_X_to_Z(X):
 Z = transform_X_to_Z(X)
 plt.plot()
 sns.histplot(Z, kde= False, bins= 75, color= 'green', alpha= 0.6)
-plt.title("Histogram of f_Z")
+plt.title("Histogram of Z Samples")
 plt.xlabel("z")
 plt.ylabel("frequency")
 plt.tight_layout()
-plt.close()
+plt.show()
 
 
 # Q4
@@ -76,79 +76,72 @@ print(Y2_corr)
 
 # histograms of marginals
 fig, axes = plt.subplots(2, 2, figsize= (14,6))
+fig.suptitle("Histograms of Marginal Samples")
 
 plt.subplot(2, 2, 1)
 sns.histplot(Y1[:,0], kde= False, bins= 30, color= 'blue', alpha= 0.6)
-plt.title("Y1.1 samples")
 plt.xlabel("y1.1")
 plt.ylabel("frequency")
 
 plt.subplot(2, 2, 2)
 sns.histplot(Y1[:,1], kde= False, bins= 30, color= 'blue', alpha= 0.6)
-plt.title("Y1.2 samples")
 plt.xlabel("y1.2")
 plt.ylabel("frequency")
 
 plt.subplot(2, 2, 3)
 sns.histplot(Y2[:,0], kde= False, bins= 30, color= 'blue', alpha= 0.6)
-plt.title("Y2.1 samples")
 plt.xlabel("y2.1")
 plt.ylabel("frequency")
 
 plt.subplot(2, 2, 4)
 sns.histplot(Y2[:,1], kde= False, bins= 30, color= 'blue', alpha= 0.6)
-plt.title("Y2.2 samples")
 plt.xlabel("y2.2")
 plt.ylabel("frequency")
 
 plt.tight_layout()
-plt.close()
+plt.show()
 
 # densities of marginals
 fig, axes = plt.subplots(2, 2, figsize= (14,6))
+fig.suptitle("Densities of Marginal Samples")
 
 plt.subplot(2, 2, 1)
 sns.kdeplot(Y1[:,0], color= 'blue', alpha= 0.6)
-plt.title("Y1.1 samples")
 plt.xlabel("y1.1")
 plt.ylabel("density")
 
 plt.subplot(2, 2, 2)
 sns.kdeplot(Y1[:,1], color= 'blue', alpha= 0.6)
-plt.title("Y1.2 samples")
 plt.xlabel("y1.2")
 plt.ylabel("density")
 
 plt.subplot(2, 2, 3)
 sns.kdeplot(Y2[:,0], color= 'blue', alpha= 0.6)
-plt.title("Y2.1 samples")
 plt.xlabel("y2.1")
 plt.ylabel("density")
 
 plt.subplot(2, 2, 4)
 sns.kdeplot(Y2[:,1], color= 'blue', alpha= 0.6)
-plt.title("Y2.2 samples")
 plt.xlabel("y2.2")
 plt.ylabel("density")
 
 plt.tight_layout()
-plt.close()
+plt.show()
 
 # scatterplots
 fig, axes = plt.subplots(1, 2, figsize= (14,6))
+fig.suptitle("Joint Scatterplots")
 
 sns.scatterplot(x= Y1[:,0], y= Y1[:,1], alpha= 0.6, ax= axes[0])
-axes[0].set_title("Y1 samples")
-axes[0].set_title("Y1.1 samples")
-axes[0].set_title("Y1.2 samples")
+axes[0].set_xlabel("y1.1")
+axes[0].set_ylabel("y1.2")
 
 sns.scatterplot(x= Y2[:,0], y= Y2[:,1], alpha= 0.6, ax= axes[1])
-axes[1].set_title("Y2 samples")
-axes[1].set_title("Y2.1 samples")
-axes[1].set_title("Y2.2 samples")
+axes[1].set_xlabel("y2.1")
+axes[1].set_ylabel("y2.2")
 
 plt.tight_layout()
-plt.close()
+plt.show()
 
 
 # Q5
@@ -165,10 +158,9 @@ plt.xlabel('Time')
 plt.ylabel('Concentration')
 plt.legend(loc= 'upper right')
 plt.tight_layout()
-plt.close()
+plt.show()
 
 # add column
 n = len(growth_data)
 growth_data['C_new'] = np.random.normal(size= n)
-
 print(growth_data.head())
