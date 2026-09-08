@@ -5,7 +5,8 @@ import seaborn as sns
 import pandas as pd
 
 
-# Q1
+# --- Sampling and evaluating random variables --- #
+
 def f_X(x):
     return uniform.pdf(x)
 
@@ -16,7 +17,6 @@ print(f"f_X(0.8) = {f_X(0.8)}")
 print(f"f_Y(0.8) = {f_Y(0.8)}")
 
 
-# Q2
 plt.figure(figsize= (14,6))
 
 X = uniform.rvs(size= 1000)
@@ -37,7 +37,6 @@ plt.tight_layout()
 plt.show()
 
 
-# Q3
 def transform_X_to_Z(X):
     return np.sin(2 * np.pi * X) * np.sqrt(X)
 
@@ -51,7 +50,8 @@ plt.tight_layout()
 plt.show()
 
 
-# Q4
+# --- Generating, analzing, and visualizing data --- #
+
 Y1 = np.random.normal(loc= [3,8], scale= [2,5], size= (1000, 2))
 Y1_quartiles = np.percentile(Y1, [25,75], axis= 0)
 Y1_range = np.diff(Y1_quartiles, axis= 0)[0]
@@ -144,7 +144,8 @@ plt.tight_layout()
 plt.show()
 
 
-# Q5
+# --- Working with dataframes --- #
+
 growth_data = pd.read_csv("data/model_growth.csv", sep= ' ')
 
 t = growth_data['t']
